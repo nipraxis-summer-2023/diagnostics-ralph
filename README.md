@@ -1,5 +1,10 @@
 # Diagnostics project
 
+List of directories to create: 
+    `scripts`
+    `findoutlie`
+    
+
 Scripts go in the `scripts` directory.
 
 Library code (Python modules) goes in the `findoutlie` directory.
