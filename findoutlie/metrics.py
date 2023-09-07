@@ -2,6 +2,9 @@
 """
 
 # Any imports you need
+import numpy as np
+import nipraxis
+
 # +++your code here+++
 
 
@@ -26,7 +29,13 @@ def dvars(img):
     # In [3]: np.mean(arr, axis=1)
     # Out[2]: array([3., 6.])
     #
-    # You may be be able to solve this in four lines, without a loop.
-    # But solve it any way you can.
-    # This is a placeholder, replace it to write your solution.
-    raise NotImplementedError('Code up this function')
+
+    data = img.get_fdata()
+    dvals = []
+    for i in range(1, data.shape[-1]):
+        # this_vol = data[..., i]
+        # prev_vol = data[..., (i-1)]
+        vol_diff = data[..., i] - data[..., (i-1)]
+        dvar_val = np.sqrt(np.mean(vol_diff ** 2))
+        dvals.append(dvar_val)
+    return np.array(dvals)
